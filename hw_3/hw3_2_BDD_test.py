@@ -1,4 +1,5 @@
 from time import sleep
+from behave import given, when, then
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -12,21 +13,26 @@ chrome_options.add_argument("--incognito")
 driver = webdriver.Chrome(chrome_options=chrome_options)
 
 # open the url
+#@given('Open Amazon web-site')
 driver.get('https://www.amazon.com/')
 sleep(1)
 
+#@given('Click Help button')
 driver.get('https://www.amazon.com/gp/help/customer/display.html')
 sleep(1)
 
+#@when('Input Cancel order into Find more solution field')
 search = driver.find_element(By.XPATH, "//input[@type='search']")
 search.clear()
 search.send_keys('Cancel order')
 sleep(1)
+
 search_button = driver.find_element(By.XPATH, "//input[@class='a-button-input']")
 search_button.click()
 
 
 # verify
+#@then('Product results for Cancel order are shown')
 assert 'Cancel Items or Orders' in driver.find_element(By.XPATH, "//div[@class='help-content']").text
 
 
