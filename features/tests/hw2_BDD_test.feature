@@ -6,6 +6,6 @@ Feature: Test Scenarios for Search functionality
     Given Open Amazon web-site
     Given Click Help button
     When Input Cancel order into Find more solution field
-    And Click on button Go
+    And Click GO button
     Then Product results for Cancel order are shown
-    And Results on the page contains Cancel Items or Orders
+    And Result contains Cancel Items or Orders
